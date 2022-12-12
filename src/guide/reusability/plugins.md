@@ -1,6 +1,6 @@
-﻿# Plugins
+﻿# Плагіни
 
-## Introduction {#introduction}
+## Знайомство {#introduction}
 
 Plugins are self-contained code that usually add app-level functionality to Vue. This is how we install a plugin:
 
