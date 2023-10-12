@@ -694,13 +694,13 @@ export default defineConfigWithTheme<ThemeConfig>({
       next: 'Наступна сторінка',
       pageNotFound: 'Сторінку не знайдено',
       deadLink: {
-        before: 'Ви відкрили посилання, якого не існує:',
+        before: 'Ви відкрили посилання, якого не існує: ',
         after: '',
       },
       deadLinkReport: {
-        before: 'Будь ласка,',
-        link: 'повідомте нас,',
-        after: 'щоб ми могли це виправити'
+        before: 'Будь ласка, ',
+        link: 'повідомте нас, ',
+        after: 'щоб ми могли це виправити.'
       },
       footerLicense: {
         before: '',
