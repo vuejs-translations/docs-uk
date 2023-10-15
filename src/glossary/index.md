@@ -8,7 +8,7 @@ This glossary is intended to provide some guidance about the meanings of technic
 
 An *async component* is a wrapper around another component that allows for the wrapped component to be lazy loaded. This is typically used as a way to reduce the size of the built `.js` files, allowing them to be split into smaller chunks that are loaded only when required.
 
-Vue Router has a similar feature for the [lazy loading of route components](https://router.vuejs.org/guide/advanced/lazy-loading.html), though this does not use Vue's async components feature.
+Vue Router has a similar feature for the [lazy loading of route components](https://vue-router.netlify.app/guide/advanced/lazy-loading.html), though this does not use Vue's async components feature.
 
 For more details see:
 - [Guide - Async Components](/guide/components/async.html)

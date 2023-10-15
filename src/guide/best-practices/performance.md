@@ -88,7 +88,7 @@ import { defineAsyncComponent } from 'vue'
 const Foo = defineAsyncComponent(() => import('./Foo.vue'))
 ```
 
-Для додатків, які використовують Vue Router, настійно рекомендується використовувати відкладене завантаження для компонентів маршруту. Vue Router має явну підтримку відкладеного завантаження, окремо від `defineAsyncComponent`. Дивіться [Маршрути відкладеного завантаження](https://router.vuejs.org/guide/advanced/lazy-loading.html) для більш детальної інформації.
+Для додатків, які використовують Vue Router, настійно рекомендується використовувати відкладене завантаження для компонентів маршруту. Vue Router має явну підтримку відкладеного завантаження, окремо від `defineAsyncComponent`. Дивіться [Маршрути відкладеного завантаження](https://vue-router.netlify.app/guide/advanced/lazy-loading.html) для більш детальної інформації.
 
 ## Оптимізація оновлення {#update-optimizations}
 
