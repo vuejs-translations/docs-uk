@@ -26,7 +26,7 @@ const myPlugin = {
 
 Немає чітко визначеної сфери застосування для плагіна, але найбільш поширені сценарії, коли плагіни корисні, включають:
 
-1. Реєстрація одного або кількох глобальних компонентів або користувацьках директив у [`app.component()`](/api/application#app-component) та [`app.directive()`](/api/application#app-directive).
+1. Реєстрація одного або кількох глобальних компонентів або користувацьких директив у [`app.component()`](/api/application#app-component) та [`app.directive()`](/api/application#app-directive).
 
 2. Зробити ресурс [injectable](/guide/components/provide-inject) у всьому додатку через виклик [`app.provide()`](/api/application#app-provide).
 
