@@ -194,17 +194,17 @@ export default {
   // життєвого циклу компонента.
   // Ця функція буде викликана під час монтування компонента.
   mounted() {
-    console.log(`The initial count is ${this.count}.`)
+    console.log(`Початковий рахунок: ${this.count}.`)
   }
 }
 </script>
 
 <template>
-  <button @click="increment">Count is: {{ count }}</button>
+  <button @click="increment">Рахунок: {{ count }}</button>
 </template>
 ```
 
-[Спробуйте у Пісочниці](https://play.vuejs.org/#eNpVkFFKw0AQhq8yBKEplcTnkhY9gDfYh8btpg3dzC6b2YKEBVHEY+gRxCct2DNsbuSUtMU+7MPMzvfPP3+X3Fmbbb1KpknRSldbglaRt3OBdWONI+jAqeoaDN4bj6SWEKBypoERUyOBAvOcJ0pJ9VZBSyUpgdJgSyAPAMwOfHozPo5WHnmU/4HWJUHjD8TAQYlLIFevVsqBt0tutQJPANQonWoUUjqGTiAM+tm21F5NJgLDcYOuKyUfpVawNmbDCmfrKZOz+QnG1miVabNKF/E97vu3+Nk/x13cx6/4HX+gf+LGa/8Sf7m1m8JV929hyBZ8UeBX5ENunBgXpBqr2ThXAMWDJ2Lnt1LXcjMTyfkEkczjx6V81x0DC6HIB5BFivysmIQ/DiGr+Q==)
+[Спробуйте у Пісочниці](https://play.vuejs.org/#eNp9VE1v00AQ/SsjCwmqRglSb1Go+FAPcAAEHH1IcLapW8e27HWJFEUKKW05ICKhKlyQ4ALntPQjJHX6F3b/Ar+EN+vaaSVaKXJ2583OvPdm7a71KAzL24mwqlYtdiI3lKu2LzphEElqivVG4knq2j5RpULqi5qpsX6vB2qijtScV3pUInWh5tif6L5K9Q7HSJ1RsyEb95YMysiJ3kXWsR4C/0R6hzimxmp6WS3F8w+Z4mOVXnbkDQGc4OBIzXD4Mx9H1pBL1OWGG9fLnJx1y6gSRUImkZ/viJwg8WWV7mf7Hv/1Sraf6/oGdgNmpyb0t39Aek+dkP6gd8Bqqvf0SH8tkR5izcrUObikYGK4FJQJoAFG5kQOo2xq7JlBbgp4aPhy2329S+oc4CkA6LyAJbDiLjqdwWf4YppyiUNAeBqXpogby9kTWAYrP4LAITpwr7HeNR3aQm4Ezbiau+D6TiTawpcLm4jYwLJxZ3n5BnN+wgbT8lRNoGigD3j26reas09MZwYKZkhYmuf4ypiMNN0H1TNmz5LZ7DEUgGne5PbaU8TOjeSUTeTjhYm/+CpcHRVaHmJ7jBFeJ5WbPFLHpPf5Imfuox7yj0wCxnNzuzb7JJoL/5zAjwNPlL2gda+uvuON4LIDU4BbYzh9VmnYzdW0Sne6C8d75fqSMdv28atVitcPGynaodeQAjui2ttEysCnh47nOlsPbKsYpW2tqh/XO3S72W2nXq9WyQ6iSK1SVLRKlozBfN1tlTfjwMebb+TYlhO0Q9cT0YtQulBmW8Xdsa2G5wXvnpmYjBKB+5HFnQ3hbP0nvhl3OGZbLyMRi2hb2FaByUbUEuDO8Nrr56KDdQG2g2biIfsW8JWA6wlzzNIeJ34TtK/kGbZP2/wVc/3Wm3itI4Uf56KYaH7LORufvye3SF/QXSmv5AOzev8AXpWS5w==)
 
 ### Композиційний API {#composition-api}
 
@@ -226,16 +226,16 @@ function increment() {
 
 // хуки життєвого циклу
 onMounted(() => {
-  console.log(`The initial count is ${count.value}.`)
+  console.log(`Початковий рахунок: ${count.value}.`)
 })
 </script>
 
 <template>
-  <button @click="increment">Count is: {{ count }}</button>
+  <button @click="increment">Рахунок: {{ count }}</button>
 </template>
 ```
 
-[Спробуйте у Пісочниці](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgb25Nb3VudGVkIH0gZnJvbSAndnVlJ1xuXG4vLyByZWFjdGl2ZSBzdGF0ZVxuY29uc3QgY291bnQgPSByZWYoMClcblxuLy8gZnVuY3Rpb25zIHRoYXQgbXV0YXRlIHN0YXRlIGFuZCB0cmlnZ2VyIHVwZGF0ZXNcbmZ1bmN0aW9uIGluY3JlbWVudCgpIHtcbiAgY291bnQudmFsdWUrK1xufVxuXG4vLyBsaWZlY3ljbGUgaG9va3Ncbm9uTW91bnRlZCgoKSA9PiB7XG4gIGNvbnNvbGUubG9nKGBUaGUgaW5pdGlhbCBjb3VudCBpcyAke2NvdW50LnZhbHVlfS5gKVxufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxidXR0b24gQGNsaWNrPVwiaW5jcmVtZW50XCI+Q291bnQgaXM6IHt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
+[Спробуйте у Пісочниці](https://play.vuejs.org/#eNp9VE1v00AQ/SsjCwmqRglSb1Go+FAPcAAEHH1IcLapW8e27HWJFEUKKW05ICKhKlyQ4ALntPQjJHX6F3b/Ar+EN+vaaSVaKXJ2583OvPdm7a71KAzL24mwqlYtdiI3lKu2LzphEElqivVG4knq2j5RpULqi5qpsX6vB2qijtScV3pUInWh5tif6L5K9Q7HSJ1RsyEb95YMysiJ3kXWsR4C/0R6hzimxmp6WS3F8w+Z4mOVXnbkDQGc4OBIzXD4Mx9H1pBL1OWGG9fLnJx1y6gSRUImkZ/viJwg8WWV7mf7Hv/1Sraf6/oGdgNmpyb0t39Aek+dkP6gd8Bqqvf0SH8tkR5izcrUObikYGK4FJQJoAFG5kQOo2xq7JlBbgp4aPhy2329S+oc4CkA6LyAJbDiLjqdwWf4YppyiUNAeBqXpogby9kTWAYrP4LAITpwr7HeNR3aQm4Ezbiau+D6TiTawpcLm4jYwLJxZ3n5BnN+wgbT8lRNoGigD3j26reas09MZwYKZkhYmuf4ypiMNN0H1TNmz5LZ7DEUgGne5PbaU8TOjeSUTeTjhYm/+CpcHRVaHmJ7jBFeJ5WbPFLHpPf5Imfuox7yj0wCxnNzuzb7JJoL/5zAjwNPlL2gda+uvuON4LIDU4BbYzh9VmnYzdW0Sne6C8d75fqSMdv28atVitcPGynaodeQAjui2ttEysCnh47nOlsPbKsYpW2tqh/XO3S72W2nXq9WyQ6iSK1SVLRKlozBfN1tlTfjwMebb+TYlhO0Q9cT0YtQulBmW8Xdsa2G5wXvnpmYjBKB+5HFnQ3hbP0nvhl3OGZbLyMRi2hb2FaByUbUEuDO8Nrr56KDdQG2g2biIfsW8JWA6wlzzNIeJ34TtK/kGbZP2/wVc/3Wm3itI4Uf56KYaH7LORufvye3SF/QXSmv5AOzev8AXpWS5w==)
 
 ### Що вибрати? {#which-to-choose}
 
