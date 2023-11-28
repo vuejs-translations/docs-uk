@@ -163,7 +163,7 @@ watch(
 Надайте мітки, для опису полів форми та для створення зв'язку між елементами з атрибутами `for` і `id`:
 
 ```vue-html
-<label for="name">Name</label>
+<label for="name">Name: </label>
 <input type="text" name="name" id="name" v-model="name" />
 ```
 
@@ -191,7 +191,7 @@ watch(
 Ви також можете дати полю input доступну назву за допомогою [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label).
 
 ```vue-html
-<label for="name">Name</label>
+<label for="name">Name: </label>
 <input
   type="text"
   name="name"
@@ -220,7 +220,7 @@ watch(
 >
   <h1 id="billing">Billing</h1>
   <div class="form-item">
-    <label for="name">Name:</label>
+    <label for="name">Name: </label>
     <input
       type="text"
       name="name"
@@ -250,7 +250,7 @@ watch(
 >
   <h1 id="billing">Billing</h1>
   <div class="form-item">
-    <label for="name">Full Name:</label>
+    <label for="name">Full Name: </label>
     <input
       type="text"
       name="name"
@@ -330,7 +330,7 @@ watch(
 ```vue-html
 <fieldset>
   <legend>Використання aria-labelledby</legend>
-  <label id="date-label" for="date">Поточна дата:</label>
+  <label id="date-label" for="date">Поточна дата: </label>
   <input
     type="date"
     name="date"
@@ -346,7 +346,7 @@ watch(
 ```vue-html
 <fieldset>
   <legend>Using aria-describedby</legend>
-  <label id="dob" for="dob">Дата народження:</label>
+  <label id="dob" for="dob">Дата народження: </label>
   <input type="date" name="dob" id="dob" aria-describedby="dob-instructions" />
   <p id="dob-instructions">MM/DD/YYYY</p>
 </fieldset>
@@ -518,7 +518,6 @@ W3C's WAI-ARIA надає вказівки щодо створення дина�
 - Інші корисні інструменти
   - [HeadingMap](https://chrome.google.com/webstore/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi?hl=en…)
   - [Color Oracle](https://colororacle.org)
-  - [Focus Indicator](https://chrome.google.com/webstore/detail/focus-indicator/heeoeadndnhebmfebjccbhmccmaoedlf?hl=en-US…)
   - [NerdeFocus](https://chrome.google.com/webstore/detail/nerdefocus/lpfiljldhgjecfepfljnbjnbjfhennpd?hl=en-US…)
   - [Visual Aria](https://chrome.google.com/webstore/detail/visual-aria/lhbmajchkkmakajkjenkchhnhbadmhmk?hl=en-US)
   - [Silktide Website Accessibility Simulator](https://chrome.google.com/webstore/detail/silktide-website-accessib/okcpiimdfkpkjcbihbmhppldhiebhhaf?hl=en-US)

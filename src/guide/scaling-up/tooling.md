@@ -89,7 +89,7 @@
 
 - [Volar](https://github.com/johnsoncodehk/volar) забезпечує перевірку типів для SFC за допомогою блоків `<script lang="ts">`, включаючи шаблонні вирази та перевірку реквізитів між компонентами.
 
-- Використовуйте [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/vue-tsc) для виконання перевірки типів з командного рядка або для створення файлів `d.ts` для SFC.
+- Використовуйте [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/tsc) для виконання перевірки типів з командного рядка або для створення файлів `d.ts` для SFC.
 
 ## Тестування {#testing}
 

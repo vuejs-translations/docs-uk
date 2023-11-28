@@ -13,7 +13,8 @@ export default {
   data() {
     return {
       question: '',
-      answer: 'Запитання зазвичай містять знак питання. ;-)'
+      answer: 'Запитання зазвичай містять знак питання. ;-)',
+      loading: false
     }
   },
   watch: {
@@ -26,12 +27,15 @@ export default {
   },
   methods: {
     async getAnswer() {
+      this.loading = true
       this.answer = 'Думаю...'
       try {
         const res = await fetch('https://yesno.wtf/api')
         this.answer = (await res.json()).answer
       } catch (error) {
         this.answer = 'Помилка! Неможливо досягнути до API. ' + error
+      } finally {
+        this.loading = false
       }
     }
   }
@@ -41,12 +45,12 @@ export default {
 ```vue-html
 <p>
   Поставте запитання «так»/«ні»:
-  <input v-model="question" />
+  <input v-model="question" :disabled="loading" />
 </p>
 <p>{{ answer }}</p>
 ```
 
-[Спробуйте в пісочниці](https://play.vuejs.org/#eNptU81u00AQfpUPX2yLxBbXkBblyAm452LFG2KUrI130zSKItEGgZAQvaBwQjxAL1UhNOSvUp5g942YtWM3aSvZ3p3ZmfnG3zc7shpJ4p30mVWz6qKVRok8bnJ2msSpRMjaQb8rMWpyIAxk4Lj5HkiZ7Ke8sID3fSZkFPMabLtSOAMuBiwll/qhrtStmutzWtdqrS+gbmh7o67J+Zl2/6BWeqrP9Lm+oPerOV+Tf4HDPA/Pq66dA4zNMs7QBoFsdWpFO74P/Ykw9Ec9obQFGdMC8lZP9JlaqCuqOVcrNTNohEvRX9RGfzBd6UkFFLJRSzW/h2+KUKNkkDNPzDELAhzOBm92+wriblgYJXVA1MZ+mBfxkJ2+ajv2C9vFMarP9mIB2YmE95bJRsam4xYn2e8fsNBjshOHouQhEEPewl7qXdmsaK4Pjkig78TUikj55nnejl4KSof7jbRiLiQpLygjGASRRJsR7Y7dkTIRNd8fMsFjbyDbfpBEdtnofTQnT6ZC3jtBjLnu7qz8M7SMnnBYmsbpQzL2+v5FKq1IyKWR9AnUTzUje6P+Gu1oujZQf0hWkkn9Jv0mRvXMhcbrlx5sPEUG8iipTU5P3S+vBRmS9ZJuIBlZQD3JFsC0YWaXpuSavrPdqB0MzvYyMxbbpb+9JM90u6zl2fWIJ32Jk2ovDln3qGkVs9S04OdAfo5EgKPR7lphPM7ddb9syhr/B6cNolE=)
+[Спробуйте в пісочниці](https://play.vuejs.org/#eNp9VM1u00AQfpXBFzsitQ+9mRRUUA/lAOXn6MtirxsXZ2286yZVFIk2CISE6AWVE+IBeqkKpSVJUylPsH4jZv2XH6pKib3zzezON9/Muq9txrG5n1LN1lrcTYJYPHQY7cVRIsCjPklDAX2HAXhEEKNRrAESKtKEVRbAu5RyEUTMBl1vViBhvEsThOR3eSZv5FV2hO9reZ0dg7zE5aU8R/ATrv6CnGQn2WF2lB3j/4vyXyM+guV9JjxYa8wzhBHxArZrg09CTkt4oF6D3OgS4bbtiqZlQfYRc2cfsiEeN0LjpKJykw2zQzmSZ5jrSk7khWKBfDD6s5xm7xXbbNgEDJnKsbxa4aUOwQLQQLDYWOSshDEY7b4o102IQq8yakkBAh8Ww8yAuWHqUW7oj/TGQhyAaAfc3KViM1fYaFSevPQlBTpUtCOP1xoQfsBcWNg6PzY/tFQUNkAkKV1yFe1Ejy6/oYAT1OqraZp6HZQcLHJ0I8YFDgrHHaRLAgE+xW4YeluImNuWdUA5i8yu8C0SB3pdw2o2o9iMB5l7HIVsNEpfXTS4qs1g0CSJkv91WuD9E5s3wf6OVafvgfwhL9Ceyj+qpTiMU5C/sdvYPfkL2zpUw5BDsLmzbYIO9yFPMk/tB4yE4VLhKzrmo3lrgxyGv5ZVXzs0BO3EIREULYBWnL8AFG91N3DazvF5UY7s0gDOTnNjNBtbs1NETmZju9jdClicCthf60QeDTccrZpJRwPbCzh5E1IP4ZIyolaR3iryI41+v7zMMBgUcMuqqWpNTXDsth/s5h3CT0muhqO5UScOQpo8j1U67mj1GDoaqhZ1n+aYmrTy7uKeNnXf3oLv8Z7CHG0HJ4Em+9TRap8gCU504d569Yz2cF07seo0xOg7nC8pj8K0kESFPU6Zh7QX4nK22x31WUSJXvOtnqCMV0VVV6W4co6G39Mnd5Q+p7turleToA3+AdOBMSw=)
 
 Параметр `watch` також підтримує шлях, розділений крапками як ключ:
 
@@ -73,16 +77,20 @@ import { ref, watch } from 'vue'
 
 const question = ref('')
 const answer = ref('Запитання зазвичай містять знак питання. ;-)')
+const loading = ref(false)
 
 // watch працює безпосередньо на референції
 watch(question, async (newQuestion, oldQuestion) => {
-  if (newQuestion.indexOf('?') > -1) {
+  if (newQuestion.includes('?')) {
+    loading.value = true
     answer.value = 'Думаю...'
     try {
       const res = await fetch('https://yesno.wtf/api')
       answer.value = (await res.json()).answer
     } catch (error) {
       answer.value = 'Помилка! Неможливо досягнути до API. ' + error
+    } finally {
+      loading.value = false
     }
   }
 })
@@ -91,13 +99,13 @@ watch(question, async (newQuestion, oldQuestion) => {
 <template>
   <p>
     Поставте запитання «так»/«ні»:
-    <input v-model="question" />
+    <input v-model="question" :disabled="loading" />
   </p>
   <p>{{ answer }}</p>
 </template>
 ```
 
-[Спробуйте в пісочниці](https://play.vuejs.org/#eNptUrFu2zAQ/ZWrFkloTKGrK7vI2KntrkVQKESFTakkZdUQNDQZuhT1UqRT0Q/IYqRN49qxC/gLTn/Uo2gFcJBBJO/xnd7j3dXOaVGwWcmdoROqRGaFBsV1WYwjkU2LXGqoQfL0BKpYJ+fQQCrzKbiU4UYiEkkulIYPJVc6ywWMDNdzXb+/iYWquOxx/I5L/Ier9oL2LW7bBeAdHe/whsDPdPoLeN9etZ/ai3ZB3xdzvyV8Dcd5DF4OfCMTic6Y11s4gVjNRQKe4NW7A+bDaAx1JACy9OiCZeKMf3xDzl65Poxh8MK3PDgYZ7N4UnKy7+K39hLvcdl+ZYzR0w1Hy3lPB7DvlVwRO67iTEPKjTH3XOtCDYNgzpXIWaXTIC4yY93mPRLybC79h71XufB8n1mG5TeQdH3wuJS5fHD7hN+fuCO/K9zgGpfPAH/gLcU7/EPIiuq9A/yNO6r0An9RRS+ptqsOgtO3rxm48Bw6jYOu2WhpyHcY2EGhEaFA82kxiTWnCCA0c2P4Rt50kfp1Q+ut7fNx6/fXXbDeb4L9NSFX+83QZoeZKEoNs8E0P+OTUeT03Y0cCKxQYJVIsK77KWsaC4fBgymn+Q+pbzoQ)
+[Спробуйте в пісочниці](https://play.vuejs.org/#eNp9VL1S20AQfpXNNZImRiroHEOGZChIkZCfUo0in0BEPil3JxvGoyJQpMmEJkOqTB6AhiEhOBg7M36C0xtlT+czmGEoJN19+532291PGpKNovD7JSVt0hExTwsJgsqyWA9Z2ityLmEInCYtGEQy3oUKEp73wMETTshCFudMSPhYUiHTnMGa5rqO49lIxMSAcour7+pM/VOj+hCfEzWpj0Fd4vJSnSP4GVd/QV3XJ/Wn+rA+xuuLjk8Qv4Llcz48WfFu0mR51E3ZzjxPEmWCYixkjWjXymtBJA5YDC6jg9dzzIO1dRiGDCBNlgJ+yuKs7FLhOk8dzzMcsJn8fpSVFPNJXlITMaUuAo76Vh+pa3VWf/V9H5ulOZIf2BcBGOmcCmRHgyiVkFAt19mVshDtIDigguX+QCZBVKS6WHPuTiLXnMX3+HsiZ67n+YZh+BXEzeRcynnOF3Xco/enmqLekRqrK3X2CNQPdYH7qfqDyAgnNAX1W01xNsfqF87gCKcxaiDY2N7ywYHH0OSweZOURVl2q+C7vWvmNGfrB94qrLITGCOiBXEjaa/IIklxB9DRvtR8LVa7BP1wjvcL46Nla81Om83VbBzMThE5mY3b5nQnZUUpob/Sy7s0WwuJdUhIoN1NRfQ+o12E54IRDUz6wORHGcOh9XZVGbgTLKSSFpECx5ukO81M8ONqmhCSOO8VaUb5q0KnEyFp2/aEBJuVD140mHZVy+LxLo0/3IPviX2NhWQbZ095n4ZkEZMR36HShDffvqT7uF4EseoyQ/YDwTdU5FlpWqJpz0rWRdm3eI3areYXgS16Jzb3JWXCFmU/i6rhhwT/F88fKP1G7qq/aq1Aqv8Gu8vG)
 
 ### Вихідні типи спостерігачів {#watch-source-types}
 
@@ -253,9 +261,13 @@ export default {
 Ми можемо змусити зворотний виклик спостерігача виконуватися негайно, передавши опцію `immediate: true`:
 
 ```js
-watch(source, (newValue, oldValue) => {
-  // виконується негайно, а потім знову, коли `source` змінюється
-}, { immediate: true })
+watch(
+  source,
+  (newValue, oldValue) => {
+    // виконується негайно, а потім знову, коли `source` змінюється
+  },
+  { immediate: true }
+)
 ```
 
 </div>
@@ -270,12 +282,16 @@ watch(source, (newValue, oldValue) => {
 const todoId = ref(1)
 const data = ref(null)
 
-watch(todoId, async () => {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
-  )
-  data.value = await response.json()
-}, { immediate: true })
+watch(
+  todoId,
+  async () => {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
+    )
+    data.value = await response.json()
+  },
+  { immediate: true }
+)
 ```
 
 Зокрема, зверніть увагу, як спостерігач використовує `todoId` двічі, один раз як джерело, а потім знову в зворотному виклику.
