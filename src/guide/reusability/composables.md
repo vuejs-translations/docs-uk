@@ -216,16 +216,19 @@ export function useFetch(url) {
   const data = ref(null)
   const error = ref(null)
 
-	const fetchData = (dt) => {
-			fetch(toValue(url))
+  const fetchData = () => {
+    // reset state before fetching..
+    data.value = null
+    error.value = null
+
+    fetch(toValue(url))
       .then((res) => res.json())
       .then((json) => (data.value = json))
       .catch((err) => (error.value = err))
-	}
+  }
 
   watchEffect(() => {
-    // обнулити стан перед отриманням...
-    fetchData(url)
+    fetchData()
   })
 
   return { data, error }
@@ -238,7 +241,7 @@ export function useFetch(url) {
 
 Ця версія `useFetch()` тепер приймає статичні рядки URL-адрес, посилання та геттери, що робить її набагато гнучкішою. Ефект спостереження запуститься негайно та відстежуватиме будь-які залежності, доступ до яких здійснюється під час `toValue(url)`. Якщо жодні залежності не відстежуються (наприклад, URL-адреса вже є рядком), ефект запускається лише один раз; інакше він запускатиметься повторно щоразу, коли відстежувана залежність зміниться.
 
-Ось [оновлена версія `useFetch()`](https://play.vuejs.org/#eNqFVd1O40YUfpVT38SoWZsK9QYF1B9RqVV/VnS3V77xOhNi1rEtexxAUaQttNutVBWpqti7Sn2CpogsKSXwCuM32u/M2CaBaFeQxHPm/HznO9+MR9anaeoMC2FtWp08yMJUUi5kkW57cThIk0zSiDLRa1OQDNJCii6NqZclA2ohqLXgVOTiCyGDfrPvuLXJ2c/h6cVBEueSnvm5eJpFtEWtvpRpvum6+3kSp5EfiH4SdUXmyKM0DJKucFDUlUk3yV0kMOFhF5FAZLc+aq3VxkLnqyHa9hptbTeFPkSMM/SjQsC/jhhR15d+m0SWJVkbCWV2BOhbTR82csK/4xpWwAcWUgyAUwqsiNRrNVHn+MzLY3y/UTP8zqj8kZflMf5+J3VJaq5u1LWali/4d5MjO88KKZOYho96SbblWSGFMX3sWfRJEIXBc7Zwl6FnbY9GFNJ43HFNiIbhyU43HCI67MFVdwBPTozU6bb6S/33Aak/1AylZ+pK/a8mpG41ihkWV2qyScirA52ByHN/T+gaPHWdpMLXwNH0oIb6W93qPv4tT7h10/CvakqwTtTlAkxkcYHSPBm4IsqFwczcc7r7DE6ZLFIX2nS2iW4ywRSwv0GI9cq8q3PNy1PHceqAjtvMz2pbC+qE+JfFfuBjY6fXE4Fsk0x+YPHcE74Xi0Md0iviQIZga0k5NGKARmsavRFtXESsqnpHj+D+Fn8WANh+fhQHZDStsxK5LmSGQc4MVdxnpTs8nvCwWW5TdUHqBjp8Acfr2lFdO47JwrjMwQAELm/MRhcP7YulIa3yZ60E5OSRncN0icdJ+Ut1DpplNQh6uvv1I4C4YGScos3KgZQ4mPNwlvIM+9zIVL0xEoNgb2BBf6fqivwGBNLzHvxYKhxT/lYlWGJPU1rzjcmYWW7VU62O+V1/fA9ULJtmXyHzCdpAM7powyfOkav7vuWusLxhvPdOmh6oJPIP/FCSDAciKSpQbOZG/lFXTASVL805mpY/VeObly/R2imIOsZ+EbNM1kyBc+0yR8QDnlekeM2XRt3QGfuj5qtVwfpkX/DOQhX0zwD0BMo/K7akoTQTOdg07fVq+Wtq+bbVRZd0ZjwRhXOXxPV4xhTwzMgW1cl5KERRefLPWN/kxNd2kcXLlzl74N+L3zc8L26ObjMXU7xKG4sDeowjH+bCtoE4iYaCXxX70NXiacQL80mVYOmUEoU9sr/xZd/J/LibDLC7TevOxkKPXEwnrplgLvhCW3bhkjbj2eEW7dauzmdWrbW70IqjNm2sr2srMzXGbSdzjKsX7mnWcd/p7J7Fr8wwEtl3KfOQexbeDNV8LT+KkoOvtE1mhWjX9qAvgucr7Pv5Ids86zFaEtlQeFazJ/1sT0izvfP9t+IQz83mIOkWEbzfsbnLJBWM0bh9VsRdwF7w02i/1Ld4GO89yXcOpYjzuikGqunQ/p6FO/zzd7R+B3fD2dBxzOL4LWfa5SM=) зі штучною затримкою та рандомізовано помилка для демонстраційних цілей.
+Ось [оновлена версія `useFetch()`](https://play.vuejs.org/#eNqFVdtO5EYQ/ZWKX2ZQZm1WKC9oQLmISIlyWZHdPPnF6+kBs562ZbcH0GikDSSbjRQFKYrYt0j5ghDELBPC5Rfaf5RT3bbxANoVGuyu66lTVe2J80mauuNCOKtOPw+zKFWUC1Wk676MRmmSKZpQJoY9CpNRWigxoCkNs2REHTh1WkZFLj4XKtxu9K5Xi9ydHJa+DBOZK3oe5OJZFtMadbaVSvNVz9vJE5nGQSi2k3ggMlftp1GYDISLpJ5KBknuIYB1jwbwBKJu53FnqRYWJl4NsdtdorX1JtGH8HHHQVwI2NceExoEKuiRyLIkA+a1poAugrUMM6GyfahtzIkvqQnHJQDXouAxJFNf9j3LJnjEQYkR6lMCJyL9Rp/oU/yuygP8f6vneM6p/IGP5QH+fiN9TvpKX+tLPStf8nOVPfvPC6USSeNHwyRb852IIkkf+Q59HMZR+IIlzE7kO+uTCUU0nfY962Jg+Ko/iMbwjoYwNZXDkgMjdLqu/9T/fkD6dz1H6rm+0P/pE9I3BsUchwt9skqIaxzdkcjzYEuYHDwtJkiFr4FjyEMO/Ze+MXX8Ux5y6bbgX/SMID3R5y2YiOIBpX2zcEWcC4uZe8bh7jI4Y7JInxnR8SqqyQRTwPYWIc4Pxn041lV55Lpu7dD3mv45Pac11ViaxSXZDaDYGA5FqHqkku/NUCwujC/FnnEZFjJUEdhaGDw7YXb0DHo77LKIeShrjZ3aOyr+tQB0g3xfhu25JfI8jBkaObdUcZ3V3OH1kJvN4zbTZ6SvMYcvYXhZG+pL17VRGFcz8Jzeiu1c3Je3U2O0yp/MJCAmt+wUonO8npQ/V3vQHKtG0LPNrx4BxBkj4xA9nhyMEjtzHI5SHkPPhcz0WztiGNhrSFDfkb6goAGB8KyDHY8K+5S/VgEW2DOU1nyjM7aXa3VXq1vitj6+JSqWbbGvEfkQZaAYk7ThE3vkmbpvuCocrxnvnU0zDVVEwW4QKVLRSCRFBYrFXMjf+oKJoPKV3aNZ+WPVvqvyFUo7AlEH0BeSx2TJJjg1JlfwuMfzAyHe8KVRF3TM9sj5+iFns9lnrGllQf0MwHSg/KNiS9X3ag42bXnDevwNtXz5mqQLc2Yt4YW9S2TdnimF3DPqimpz7g+iqCz5MTUXO/GlXmTy7kfAXNy+fF/zfNmsbtMXm7wKK8UuPcHKR7nodoE4iceiB+UO5qq9jfjQPq0CLGwpPihD6n4dqG03C+QgGUG7TsvuSqtGTmYC10wwF3yhLZpwyi7j2eASu51NE8+eOku3rhVHPVpZXjZSZmqK207laNcw2jKs474z0X2HP7VRLLJvU+Yh9x18Gar+OkEcJ7tfGpnKCtGr5eG2CF88IN/J91jmO09QksjGwncanQqyLaGseuO7b8Qe3hvlKBkUMazfodxkkgrGaM0+LeQAsFt2Bu0X5haP5NbTfGNPCZnXRTFQQ4ex9x3c4Z+9o/RbuCvuivFjFqf/A4D19gg=) зі штучною затримкою та рандомізовано помилка для демонстраційних цілей.
 
 ## Конвенції та найкращі практики {#conventions-and-best-practices}
 

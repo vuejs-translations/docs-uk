@@ -294,17 +294,17 @@ h(Transition, {
   Визначення цільового контейнера:
 
   ```vue-html
-  <teleport to="#some-id" />
-  <teleport to=".some-class" />
-  <teleport to="[data-teleport]" />
+  <Teleport to="#some-id" />
+  <Teleport to=".some-class" />
+  <Teleport to="[data-teleport]" />
   ```
 
   Умовне відключення:
 
   ```vue-html
-  <teleport to="#popup" :disabled="displayVideoInline">
+  <Teleport to="#popup" :disabled="displayVideoInline">
     <video src="./my-movie.mp4">
-  </teleport>
+  </Teleport>
   ```
 
 - **Також до вашої уваги:** [Гід - Teleport](/guide/built-ins/teleport)

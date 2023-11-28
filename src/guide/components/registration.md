@@ -8,7 +8,7 @@
 
 ## Глобальна реєстрація {#global-registration}
 
-Ми можемо зробити компоненти глобально доступними в [додатку Vue](/guide/essentials/application) за допомогою методу `app.component()`:
+Ми можемо зробити компоненти глобально доступними в [додатку Vue](/guide/essentials/application) за допомогою методу `.component()`:
 
 ```js
 import { createApp } from 'vue'
@@ -33,7 +33,7 @@ import MyComponent from './App.vue'
 app.component('MyComponent', MyComponent)
 ```
 
-Метод `app.component()` може бути зв'язаний:
+Метод `.component()` може бути зв'язаний:
 
 ```js
 app

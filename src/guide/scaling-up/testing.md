@@ -141,7 +141,7 @@ const { getByText } = render(Stepper, {
 
 getByText('0') // Неявне твердження, що "0" знаходиться в межах компонента
 
-const button = getByText('збільшити')
+const button = getByRole('button', { name: /increment/i })
 
 // Надсилання події натискання до нашої кнопки збільшення.
 await fireEvent.click(button)
