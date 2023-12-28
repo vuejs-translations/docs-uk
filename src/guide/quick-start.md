@@ -2,6 +2,10 @@
 footer: false
 ---
 
+<script setup>
+import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
+</script>
+
 # Швидкий старт {#quick-start}
 
 ## Спробуйте Vue онлайн {#try-vue-online}
@@ -17,14 +21,43 @@ footer: false
 :::tip Передумови
 
 - Знайомство з командним рядком
-- Встановіть [Node.js](https://nodejs.org/uk/) версії 16.0 або новішу
+- Встановіть [Node.js](https://nodejs.org/uk/) версії 18.0 або новішу
   :::
 
 У цій секції ми розповімо, як створити Vue [одно-сторінковий додаток](/guide/extras/ways-of-using-vue#single-page-application-spa) на вашому локальному комп'ютері. Створений проєкт буде використовувати збірку, яка заснована на [Vite](https://vitejs.dev), і дозволяє використовувати [одно-файлові компоненти](/guide/scaling-up/sfc) Vue (SFC).
 
-Переконайтеся, що у вас встановлено найновішу версію [Node.js](https://nodejs.org/uk/), і ваш поточний робочий каталог є тим, у якому ви збираєтеся створити проект. Виконайте наступну команду в командному рядку (без знаку `>`):
+Переконайтеся, що у вас встановлено найновішу версію [Node.js](https://nodejs.org/uk/), і ваш поточний робочий каталог є тим, у якому ви збираєтеся створити проект. Виконайте наступну команду в командному рядку (без знаку `$`):
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm create vue@latest</span></span></code></pre></div>
+<VTCodeGroup>
+  <VTCodeGroupTab label="npm">
+
+  ```sh
+  $ npm create vue@latest
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="pnpm">
+  
+  ```sh
+  $ pnpm create vue@latest
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="yarn">
+  
+  ```sh
+  $ yarn create vue@latest
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="bun">
+  
+  ```sh
+  $ bun create vue@latest
+  ```
+
+  </VTCodeGroupTab>
+</VTCodeGroup>
 
 Ця команда встановить і виконає [create-vue](https://github.com/vuejs/create-vue), офіційний інструмент створення проєктів Vue. Вам буде надано підказки щодо ряду додаткових функцій, таких як TypeScript з підтримкою тестування:
 
@@ -43,10 +76,44 @@ footer: false
 
 Якщо ви не впевнені щодо варіанту, просто виберіть «No» (Ні), натиснувши Enter. Після створення проєкту дотримуйтесь інструкцій для встановлення залежностей та запуску сервера в режимі розробки:
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">cd</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проєкту-без-пробілів</span><span style="color:#89DDFF;">&gt;</span></span>
-<span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm install</span></span>
-<span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
-<span class="line"></span></code></pre></div>
+<VTCodeGroup>
+  <VTCodeGroupTab label="npm">
+
+  ```sh
+  $ cd <your-project-name>
+  $ npm install
+  $ npm run dev
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="pnpm">
+  
+  ```sh
+  $ cd <your-project-name>
+  $ pnpm install
+  $ pnpm run dev
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="yarn">
+  
+  ```sh
+  $ cd <your-project-name>
+  $ yarn
+  $ yarn dev
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="bun">
+  
+  ```sh
+  $ cd <your-project-name>
+  $ bun install
+  $ bun run dev
+  ```
+
+  </VTCodeGroupTab>
+</VTCodeGroup>
 
 Вітаємо, тепер у вас має бути запущений перший проєкт на Vue! Зауважте, що приклади компонентів у створеному проєкті написані за допомогою [Композиційного API](/guide/introduction#composition-api) і `<script setup>`, а не [Опційним API](/guide/introduction#options-api). Ось кілька додаткових порад:
 
@@ -57,8 +124,36 @@ footer: false
 
 Коли ви будете готові до запуску свого додатку у продакшн, виконайте наступне:
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run build</span></span>
-<span class="line"></span></code></pre></div>
+<VTCodeGroup>
+  <VTCodeGroupTab label="npm">
+
+  ```sh
+  $ npm run build
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="pnpm">
+  
+  ```sh
+  $ pnpm run build
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="yarn">
+  
+  ```sh
+  $ yarn build
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="bun">
+  
+  ```sh
+  $ bun run build
+  ```
+
+  </VTCodeGroupTab>
+</VTCodeGroup>
 
 Виконання цієї команди створить в директорії `./dist` збірку вашого додатка, готового до продакшну. Прочитайте [Гід з підготовки до продакшну](/guide/best-practices/production-deployment) для отримання деталей.
 
