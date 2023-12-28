@@ -53,7 +53,7 @@ Vue надає першокласні API для «рендерингу» про
 
 Незважаючи на те, що Vue в основному призначений для створення вебдодатків, він аж ніяк не обмежується лише браузером. Ви можете:
 
-- Build desktop apps with [Electron](https://www.electronjs.org/) or [Tauri](https://tauri.app)
-- Build mobile apps with [Ionic Vue](https://ionicframework.com/docs/vue/overview)
-- Build desktop and mobile apps from the same codebase with [Quasar](https://quasar.dev/)
-- Use Vue's [Custom Renderer API](/api/custom-renderer) to build custom renderers targeting [WebGL](https://troisjs.github.io/) or even [the terminal](https://github.com/vue-terminal/vue-termui)!
+- Створюйте настільні програми за допомогою [Electron](https://www.electronjs.org/) або [Tauri](https://tauri.app)
+- Створюйте мобільні програми за допомогою [Ionic Vue](https://ionicframework.com/docs/vue/overview)
+- Створюйте настільні та мобільні додатки з однієї кодової бази за допомогою [Quasar](https://quasar.dev/)
+- Використовуйте [Custom Renderer API](/api/custom-renderer) Vue, щоб створювати користувацькі рендерери, націлені на [WebGL](https://troisjs.github.io/) або навіть на [термінал](https://github.com). /vue-terminal/vue-termui)!

@@ -163,20 +163,20 @@ data() {
 const todos = ref([
   {
     id: 1,
-    text: 'Learn to use v-for'
+    text: 'Навчіться використовувати v-for'
   },
   {
     id: 2,
-    text: 'Learn to use key'
+    text: 'Навчіться користуватися ключем'
   }
 ])
 ```
 
 </div>
 
-Then you sort them alphabetically. When updating the DOM, Vue will optimize rendering to perform the cheapest DOM mutations possible. That might mean deleting the first todo element, then adding it again at the end of the list.
+Потім ви сортуєте їх за алфавітом. Під час оновлення DOM Vue оптимізує візуалізацію для виконання найдешевших мутацій DOM. Це може означати видалення першого елемента todo, а потім додавання його знову в кінці списку.
 
-The problem is, there are cases where it's important not to delete elements that will remain in the DOM. For example, you may want to use `<transition-group>` to animate list sorting, or maintain focus if the rendered element is an `<input>`. In these cases, adding a unique key for each item (e.g. `:key="todo.id"`) will tell Vue how to behave more predictably.
+Проблема в тому, що є випадки, коли важливо не видаляти елементи, які залишаться в DOM. Наприклад, ви можете використати `<transition-group>` для анімації сортування списку або підтримувати фокус, якщо візуалізований елемент є `<input>`. У цих випадках додавання унікального ключа для кожного елемента (наприклад, `:key="todo.id"`) підкаже Vue, як поводитися більш передбачувано.
 
 In our experience, it's better to _always_ add a unique key, so that you and your team simply never have to worry about these edge cases. Then in the rare, performance-critical scenarios where object constancy isn't necessary, you can make a conscious exception.
 :::

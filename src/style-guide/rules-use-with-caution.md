@@ -156,7 +156,7 @@ app.component('TodoItem', {
 <div class="composition-api">
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Погано</h3>
 
 ```vue
 <script setup>

@@ -289,14 +289,14 @@ export default {
 
 </div>
 
-## Events as Props {#events-props}
+## Події як реквізити {#events-props}
 
-You may also declare and pass `events` as `props`, by prefixing the capitalized event name with `on`.
+Ви також можете оголосити та передати `events` як `props`, додавши `on` перед назвою події з великої літери.
 
-Using `props.onEvent` has a different behaviour than using `emit('event')`, as the former will pass only handle the property based listener (either `@event` or `:on-event`)
+Використання `props.onEvent` має іншу поведінку, ніж використання `emit('event')`, оскільки перше передасть лише обробку прослухувача на основі властивості (`@event` або `:on-event`).
 
 :::warning
-If both `:onEvent` and `@event` are passed `props.onEvent` might be an array of `functions` instead of `function`, this behavior is not stable and might change in the future.
+Якщо передано і `:onEvent`, і `@event`, `props.onEvent` може бути масивом `функцій` замість `функції`, така поведінка не є стабільною та може змінитися в майбутньому.
 :::
 
-Because of this, it is recommended to use `emit('event')` instead of `props.onEvent` when emitting events.
+Через це рекомендується використовувати `emit('event')` замість `props.onEvent` під час випромінювання подій.

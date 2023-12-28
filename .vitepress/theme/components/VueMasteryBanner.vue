@@ -23,12 +23,12 @@
       <div class="vm-banner-wrapper">
         <div class="vm-banner-content">
           <h1 class="vm-banner-title">
-            Learn Vue with Evan You
+            Вивчайте Vue з Еваном Ю
             <!-- <span>Dec 18-29</span> -->
           </h1>
-          <p class="vm-banner-sub">Get 60% off a year of Vue courses</p>
+          <p class="vm-banner-sub">Отримайте знижку 60% на рік курсів Vue</p>
         </div>
-        <button id="vm-banner-cta">Unlock your discount</button>
+        <button id="vm-banner-cta">Розблокуйте свою знижку</button>
       </div>
       <button id="vm-banner-close" @click.prevent="closeBanner">
         <VTIconPlus class="close" />

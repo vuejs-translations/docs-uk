@@ -222,7 +222,7 @@ const inputClasses = computed(() => {
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Добре</h3>
 
 ```js
 defineProps({

@@ -174,11 +174,11 @@ describe('increment', () => {
     }
   })
 
-  getByText('0') // Implicit assertion that "0" is within the component
+  getByText('0') // Неявне твердження, що "0" знаходиться всередині компонента
 
   const button = getByRole('button', { name: /increment/i })
 
-  // Dispatch a click event to our increment button.
+  // Надішліть подію клацання до нашої кнопки збільшення.
   await fireEvent.click(button)
 
   getByText('1')
