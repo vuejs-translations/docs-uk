@@ -67,7 +67,7 @@ export default {
 
 </div>
 
-Зауважте, що ви можете отримати доступ до посилання **після того, як компонент змонтовано.** Якщо ви спробуєте отримати доступ до <span class="options-api">`$refs.input`</span><span class="composition- api">`input`</span> у виразі шаблону буде <span class="options-api">`undefined`</span><span class="composition-api">`null`</ span> на першому рендері. Це тому, що елемент існує лише після першого відтворення!
+Зауважте, що ви можете отримати доступ до посилання **після того, як компонент змонтовано.** Якщо ви спробуєте отримати доступ до <span class="options-api">`$refs.input`</span><span class="composition- api">`input`</span> у виразі шаблону буде <span class="options-api">`undefined`</span><span class="composition-api">`null`</span> на першому рендері. Це тому, що елемент існує лише після першого відтворення!
 
 <div class="composition-api">
 
