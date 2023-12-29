@@ -42,7 +42,7 @@ Vue написаний на TypeScript, тому забезпечує першо
 
 Під час ручної конфігурації `tsconfig.json` зверніть увагу на важливі опції:
 
-- [`compilerOptions.isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) має значення `true`, оскільки Vite використовує [esbuild](https://esbuild.github.io/) для транспіляції TypeScript і має обмеження на транспілювання одного файлу.
+- [`compilerOptions.isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) має значення `true`, оскільки Vite використовує [esbuild](https://esbuild.github.io/) для транспіляції TypeScript і має обмеження на транспілювання одного файлу. [`compilerOptions.verbatimModuleSyntax`](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax) є [надмножиною `isolatedModules`](https://github.com/microsoft/TypeScript/issues/53601) і є також хороший вибір - це те, що використовує [`@vue/tsconfig`](https://github.com/vuejs/tsconfig).
 
 - Якщо ви використовуєте опційний АРІ, вам потрібно встановити [`compilerOptions.strict`](https://www.typescriptlang.org/tsconfig#strict) на `true` (або принаймні увімкнути [`compilerOptions.noImplicitThis`](https://www.typescriptlang.org/tsconfig#noImplicitThis), який є частиною `strict`), щоб використовувати перевірку типів `this` в опціях компонента. Інакше `this` розглядатиметься як `any`.
 

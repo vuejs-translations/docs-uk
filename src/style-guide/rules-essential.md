@@ -44,6 +44,7 @@ Detailed [prop definitions](/guide/components/props#prop-validation) have two ad
   :::
 
 <div class="options-api">
+
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
@@ -83,9 +84,11 @@ props: {
 ```
 
 </div>
+
 </div>
 
 <div class="composition-api">
+
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
@@ -123,6 +126,7 @@ const props = defineProps({
 ```
 
 </div>
+
 </div>
 
 ## Use keyed `v-for` {#use-keyed-v-for}
@@ -131,6 +135,8 @@ const props = defineProps({
 
 ::: details Detailed Explanation
 Let's say you have a list of todos:
+
+<div class="options-api">
 
 ```js
 data() {
@@ -149,9 +155,28 @@ data() {
 }
 ```
 
-Then you sort them alphabetically. When updating the DOM, Vue will optimize rendering to perform the cheapest DOM mutations possible. That might mean deleting the first todo element, then adding it again at the end of the list.
+</div>
 
-The problem is, there are cases where it's important not to delete elements that will remain in the DOM. For example, you may want to use `<transition-group>` to animate list sorting, or maintain focus if the rendered element is an `<input>`. In these cases, adding a unique key for each item (e.g. `:key="todo.id"`) will tell Vue how to behave more predictably.
+<div class="composition-api">
+
+```js
+const todos = ref([
+  {
+    id: 1,
+    text: 'Навчіться використовувати v-for'
+  },
+  {
+    id: 2,
+    text: 'Навчіться користуватися ключем'
+  }
+])
+```
+
+</div>
+
+Потім ви сортуєте їх за алфавітом. Під час оновлення DOM Vue оптимізує візуалізацію для виконання найдешевших мутацій DOM. Це може означати видалення першого елемента todo, а потім додавання його знову в кінці списку.
+
+Проблема в тому, що є випадки, коли важливо не видаляти елементи, які залишаться в DOM. Наприклад, ви можете використати `<transition-group>` для анімації сортування списку або підтримувати фокус, якщо візуалізований елемент є `<input>`. У цих випадках додавання унікального ключа для кожного елемента (наприклад, `:key="todo.id"`) підкаже Vue, як поводитися більш передбачувано.
 
 In our experience, it's better to _always_ add a unique key, so that you and your team simply never have to worry about these edge cases. Then in the rare, performance-critical scenarios where object constancy isn't necessary, you can make a conscious exception.
 :::
@@ -214,6 +239,8 @@ Will throw an error, because the `v-if` directive will be evaluated first and th
 
 This could be fixed by iterating over a computed property instead, like this:
 
+<div class="options-api">
+
 ```js
 computed: {
   activeUsers() {
@@ -221,6 +248,18 @@ computed: {
   }
 }
 ```
+
+</div>
+
+<div class="composition-api">
+
+```js
+const activeUsers = computed(() => {
+  return users.filter((user) => user.isActive)
+})
+```
+
+</div>
 
 ```vue-html
 <ul>

@@ -23,17 +23,17 @@
   ```vue
   <script setup>
   import { ref, provide } from 'vue'
-  import { fooSymbol } from './injectionSymbols'
+  import { countSymbol } from './injectionSymbols'
 
   // надати статичне значення
-  provide('foo', 'bar')
+  provide('path', '/project/')
 
   // надати реактивне значення
   const count = ref(0)
   provide('count', count)
 
   // надати з символьними ключами
-  provide(fooSymbol, count)
+  provide(countSymbol, count)
   </script>
   ```
 
@@ -81,19 +81,19 @@
   ```vue
   <script setup>
   import { inject } from 'vue'
-  import { fooSymbol } from './injectionSymbols'
+  import { countSymbol } from './injectionSymbols'
 
   // ввести статичне значення за замовчуванням
-  const foo = inject('foo')
+  const path = inject('path')
 
   // ввести реактивне значення
   const count = inject('count')
 
-  // ввести зз символьними ключами
-  const foo2 = inject(fooSymbol)
+  // ввести з символьними ключами
+  const count2 = inject(countSymbol)
 
   // ввести зі значенням за замовчуванням
-  const bar = inject('foo', 'default value')
+  const bar = inject('path', '/default-path')
 
   // ввести зі значенням за замовчуванням фабричну функцію
   const fn = inject('function', () => {})
@@ -101,6 +101,16 @@
   // ввести зі значенням за замовчуванням функцію, передаючи 3-й аргумент
   const baz = inject('factory', () => new ExpensiveObject(), true)
   </script>
+  ```
+
+## hasInjectionContext() <sup class="vt-badge" data-text="3.3+" /> {#has-injection-context}
+
+Повертає true, якщо [inject()](#inject) можна використовувати без попередження про те, що його викликають не в тому місці (наприклад, поза `setup()`). Цей метод призначений для використання бібліотеками, які хочуть використовувати `inject()` всередині без ініціювання попередження для кінцевого користувача.
+
+- **Type**
+
+  ```ts
+  function hasInjectionContext(): boolean
   ```
 
 - **Також до вашої уваги**:

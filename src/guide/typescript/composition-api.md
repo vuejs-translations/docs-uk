@@ -50,6 +50,16 @@ const props = defineProps<Props>()
 </script>
 ```
 
+Це також працює, якщо `Props` імпортовано із зовнішнього джерела. Ця функція вимагає, щоб TypeScript був одноранговою (peer) залежністю від Vue.
+
+```vue
+<script setup lang="ts">
+import type { Props } from './foo'
+
+const props = defineProps<Props>()
+</script>
+```
+
 #### Синтаксичні обмеження {#syntax-limitations}
 
 У версії 3.2 і нижче параметр загального типу для `defineProps()` обмежувався літералом типу або посиланням на локальний інтерфейс.
@@ -142,6 +152,18 @@ export default defineComponent({
 <script setup lang="ts">
 // під час виконання
 const emit = defineEmits(['change', 'update'])
+
+// на основі опцій
+const emit = defineEmits({
+  change: (id: number) => {
+    // повертає `true` або `false`, щоб вказати,
+    // що перевірка пройшла/не пройшла
+  },
+  update: (value: string) => {
+    // повертає `true` або `false`, щоб вказати,
+    // що перевірка пройшла/не пройшла
+  }
+})
 
 // на основі типу
 const emit = defineEmits<{
