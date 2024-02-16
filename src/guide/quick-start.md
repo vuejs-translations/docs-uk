@@ -10,11 +10,11 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 
 ## Спробуйте Vue онлайн {#try-vue-online}
 
-- Щоб швидко відчути смак Vue, спробуйте його безпосередньо в нашій [пісочниці](https://play.vuejs.org/#eNo9jU0KwjAQha8yZqOCWtyWWPAe2QQbtdCmIZ0UIQTUQ7j1DoLgMZIbObVYGGbeN29+PNsbs+mdYjnj3cFWBguh1cW0FqFUR+lqBC80QClRLpajBrAKndV/Ami6Uw7z+EzX+Imv9Ej3FaTbqOJ7Nh/nwlAoUfBs+kaAqjG1REUEwM/bwvvhJITAM6Jft9LGIfTrpi1VvROMfMHI4tm0zcIXmzJMuw==).
+- Щоб швидко спробувати Vue, спробуйте його безпосередньо в нашій [пісочниці](https://play.vuejs.org/#eNo9jU0KwjAQha8yZqOCWtyWWPAe2QQbtdCmIZ0UIQTUQ7j1DoLgMZIbObVYGGbeN29+PNsbs+mdYjnj3cFWBguh1cW0FqFUR+lqBC80QClRLpajBrAKndV/Ami6Uw7z+EzX+Imv9Ej3FaTbqOJ7Nh/nwlAoUfBs+kaAqjG1REUEwM/bwvvhJITAM6Jft9LGIfTrpi1VvROMfMHI4tm0zcIXmzJMuw==).
 
-- Якщо ви віддаєте перевагу звичайному HTML без етапу збірки, ви можете використовувати цей [JSFiddle](https://jsfiddle.net/z6d9k84y/), як відправну точку.
+- Якщо ви віддаєте перевагу звичайному HTML без етапу збірки, ви можете використовувати [JSFiddle](https://jsfiddle.net/z6d9k84y/), як початкову точку.
 
-- Якщо ви вже знайомі з Node.js і концепціями інструментів збірки, також можете спробувати повноцінну відправну збірку, прямо у вашому браузері на [StackBlitz](https://vite.new/vue).
+- Якщо ви вже знайомі з Node.js і концепціями інструментів збірки, тоді можете спробувати повноцінну відправну збірку, прямо у вашому браузері на [StackBlitz](https://vite.new/vue).
 
 ## Створення застосунку Vue {#creating-a-vue-application}
 
@@ -119,7 +119,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 
 - Рекомендовано використовувати [Visual Studio Code](https://code.visualstudio.com/) в якості вашої IDE ї [розширенням Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Якщо ви користуєтесь іншими редакторами, перевірте [можливості щодо їхньої підтримки](/guide/scaling-up/tooling#ide-support).
 - Стосовно інших інструментів, зокрема інтеграції з бекенд фреймворками, перегляньте наш [Гід по інструментах](/guide/scaling-up/tooling).
-- Для поглибленого вивчення інструментів, на яких оснований Vite, перегляньте [документацію по Vite](https://vitejs.dev).
+- Для поглибленого вивчення інструментів на основі Vite, перегляньте [документацію по Vite](https://vitejs.dev).
 - Якщо ви користуєтесь TypeScript, пропонуємо до вашої уваги [Гід по використанню TypeScript](typescript/overview).
 
 Коли ви будете готові до запуску свого додатку у продакшн, виконайте наступне:
@@ -364,7 +364,7 @@ import { createApp } from 'vue'
 :::
 
 :::warning Примітки щодо виробничого використання
-У наведених прикладах наразі використовується збірка Vue для розробки. Якщо ви збираєтеся використовувати Vue із CDN у виробництві, обов’язково перегляньте [Посібник із розгортання виробництва](/guide/best-practices/production-deployment#without-build). -інструменти).
+У наведених прикладах наразі використовується збірка Vue для розробки. Якщо ви збираєтеся використовувати Vue із CDN у виробництві, обов’язково перегляньте [Посібник із розгортання виробництва](/guide/best-practices/production-deployment#without-build).
 :::
 
 ### Розділення модулів {#splitting-up-the-modules}
