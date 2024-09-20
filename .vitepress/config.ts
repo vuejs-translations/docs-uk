@@ -63,7 +63,7 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'Відео курси',
+        text: 'Відеокурси',
         items: [
           {
             text: 'Vue Mastery',
