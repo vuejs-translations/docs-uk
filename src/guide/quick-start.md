@@ -2,29 +2,62 @@
 footer: false
 ---
 
+<script setup>
+import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
+</script>
+
 # Швидкий старт {#quick-start}
 
 ## Спробуйте Vue онлайн {#try-vue-online}
 
-- Щоб швидко відчути смак Vue, спробуйте його безпосередньо в нашій [пісочниці](https://play.vuejs.org/#eNo9jU0KwjAQha8yZqOCWtyWWPAe2QQbtdCmIZ0UIQTUQ7j1DoLgMZIbObVYGGbeN29+PNsbs+mdYjnj3cFWBguh1cW0FqFUR+lqBC80QClRLpajBrAKndV/Ami6Uw7z+EzX+Imv9Ej3FaTbqOJ7Nh/nwlAoUfBs+kaAqjG1REUEwM/bwvvhJITAM6Jft9LGIfTrpi1VvROMfMHI4tm0zcIXmzJMuw==).
+- Щоб швидко спробувати Vue, спробуйте його безпосередньо в нашій [пісочниці](https://play.vuejs.org/#eNo9jU0KwjAQha8yZqOCWtyWWPAe2QQbtdCmIZ0UIQTUQ7j1DoLgMZIbObVYGGbeN29+PNsbs+mdYjnj3cFWBguh1cW0FqFUR+lqBC80QClRLpajBrAKndV/Ami6Uw7z+EzX+Imv9Ej3FaTbqOJ7Nh/nwlAoUfBs+kaAqjG1REUEwM/bwvvhJITAM6Jft9LGIfTrpi1VvROMfMHI4tm0zcIXmzJMuw==).
 
-- Якщо ви віддаєте перевагу звичайному HTML без етапу збірки, ви можете використовувати цей [JSFiddle](https://jsfiddle.net/z6d9k84y/), як відправну точку.
+- Якщо ви віддаєте перевагу звичайному HTML без етапу збірки, ви можете використовувати [JSFiddle](https://jsfiddle.net/z6d9k84y/), як початкову точку.
 
-- Якщо ви вже знайомі з Node.js і концепціями інструментів збірки, також можете спробувати повноцінну відправну збірку, прямо у вашому браузері на [StackBlitz](https://vite.new/vue).
+- Якщо ви вже знайомі з Node.js і концепціями інструментів збірки, тоді можете спробувати повноцінну відправну збірку, прямо у вашому браузері на [StackBlitz](https://vite.new/vue).
 
 ## Створення застосунку Vue {#creating-a-vue-application}
 
 :::tip Передумови
 
 - Знайомство з командним рядком
-- Встановіть [Node.js](https://nodejs.org/uk/) версії 16.0 або новішу
+- Встановіть [Node.js](https://nodejs.org/uk/) версії 18.0 або новішу
   :::
 
 У цій секції ми розповімо, як створити Vue [одно-сторінковий додаток](/guide/extras/ways-of-using-vue#single-page-application-spa) на вашому локальному комп'ютері. Створений проєкт буде використовувати збірку, яка заснована на [Vite](https://vitejs.dev), і дозволяє використовувати [одно-файлові компоненти](/guide/scaling-up/sfc) Vue (SFC).
 
-Переконайтеся, що у вас встановлено найновішу версію [Node.js](https://nodejs.org/uk/), і ваш поточний робочий каталог є тим, у якому ви збираєтеся створити проект. Виконайте наступну команду в командному рядку (без знаку `>`):
+Переконайтеся, що у вас встановлено найновішу версію [Node.js](https://nodejs.org/uk/), і ваш поточний робочий каталог є тим, у якому ви збираєтеся створити проект. Виконайте наступну команду в командному рядку (без знаку `$`):
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm create vue@latest</span></span></code></pre></div>
+<VTCodeGroup>
+  <VTCodeGroupTab label="npm">
+
+  ```sh
+  $ npm create vue@latest
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="pnpm">
+  
+  ```sh
+  $ pnpm create vue@latest
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="yarn">
+  
+  ```sh
+  $ yarn create vue@latest
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="bun">
+  
+  ```sh
+  $ bun create vue@latest
+  ```
+
+  </VTCodeGroupTab>
+</VTCodeGroup>
 
 Ця команда встановить і виконає [create-vue](https://github.com/vuejs/create-vue), офіційний інструмент створення проєктів Vue. Вам буде надано підказки щодо ряду додаткових функцій, таких як TypeScript з підтримкою тестування:
 
@@ -43,22 +76,84 @@ footer: false
 
 Якщо ви не впевнені щодо варіанту, просто виберіть «No» (Ні), натиснувши Enter. Після створення проєкту дотримуйтесь інструкцій для встановлення залежностей та запуску сервера в режимі розробки:
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">cd</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&lt;</span><span style="color:#888;">назва-вашого-проєкту-без-пробілів</span><span style="color:#89DDFF;">&gt;</span></span>
-<span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm install</span></span>
-<span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
-<span class="line"></span></code></pre></div>
+<VTCodeGroup>
+  <VTCodeGroupTab label="npm">
+
+  ```sh
+  $ cd <your-project-name>
+  $ npm install
+  $ npm run dev
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="pnpm">
+  
+  ```sh
+  $ cd <your-project-name>
+  $ pnpm install
+  $ pnpm run dev
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="yarn">
+  
+  ```sh
+  $ cd <your-project-name>
+  $ yarn
+  $ yarn dev
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="bun">
+  
+  ```sh
+  $ cd <your-project-name>
+  $ bun install
+  $ bun run dev
+  ```
+
+  </VTCodeGroupTab>
+</VTCodeGroup>
 
 Вітаємо, тепер у вас має бути запущений перший проєкт на Vue! Зауважте, що приклади компонентів у створеному проєкті написані за допомогою [Композиційного API](/guide/introduction#composition-api) і `<script setup>`, а не [Опційним API](/guide/introduction#options-api). Ось кілька додаткових порад:
 
 - Рекомендовано використовувати [Visual Studio Code](https://code.visualstudio.com/) в якості вашої IDE ї [розширенням Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Якщо ви користуєтесь іншими редакторами, перевірте [можливості щодо їхньої підтримки](/guide/scaling-up/tooling#ide-support).
 - Стосовно інших інструментів, зокрема інтеграції з бекенд фреймворками, перегляньте наш [Гід по інструментах](/guide/scaling-up/tooling).
-- Для поглибленого вивчення інструментів, на яких оснований Vite, перегляньте [документацію по Vite](https://vitejs.dev).
+- Для поглибленого вивчення інструментів на основі Vite, перегляньте [документацію по Vite](https://vitejs.dev).
 - Якщо ви користуєтесь TypeScript, пропонуємо до вашої уваги [Гід по використанню TypeScript](typescript/overview).
 
 Коли ви будете готові до запуску свого додатку у продакшн, виконайте наступне:
 
-<div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run build</span></span>
-<span class="line"></span></code></pre></div>
+<VTCodeGroup>
+  <VTCodeGroupTab label="npm">
+
+  ```sh
+  $ npm run build
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="pnpm">
+  
+  ```sh
+  $ pnpm run build
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="yarn">
+  
+  ```sh
+  $ yarn build
+  ```
+
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="bun">
+  
+  ```sh
+  $ bun run build
+  ```
+
+  </VTCodeGroupTab>
+</VTCodeGroup>
 
 Виконання цієї команди створить в директорії `./dist` збірку вашого додатка, готового до продакшну. Прочитайте [Гід з підготовки до продакшну](/guide/best-practices/production-deployment) для отримання деталей.
 
@@ -269,7 +364,7 @@ import { createApp } from 'vue'
 :::
 
 :::warning Примітки щодо виробничого використання
-У наведених прикладах наразі використовується збірка Vue для розробки. Якщо ви збираєтеся використовувати Vue із CDN у виробництві, обов’язково перегляньте [Посібник із розгортання виробництва](/guide/best-practices/production-deployment#without-build). -інструменти).
+У наведених прикладах наразі використовується збірка Vue для розробки. Якщо ви збираєтеся використовувати Vue із CDN у виробництві, обов’язково перегляньте [Посібник із розгортання виробництва](/guide/best-practices/production-deployment#without-build).
 :::
 
 ### Розділення модулів {#splitting-up-the-modules}

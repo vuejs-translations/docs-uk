@@ -45,6 +45,7 @@ const nav: ThemeConfig['nav'] = [
         items: [
           { text: 'Партнери', link: '/partners/' },
           { text: 'Теми', link: '/ecosystem/themes' },
+          { text: 'UI компоненти', link: 'https://ui-libs.vercel.app/' },
           {
             text: 'Сертифікація',
             link: 'https://certification.vuejs.org/?ref=vuejs-nav'
@@ -62,7 +63,7 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'Відео курси',
+        text: 'Відеокурси',
         items: [
           {
             text: 'Vue Mastery',

@@ -42,4 +42,6 @@
 
 Цей Кодекс поведінки адаптовано згідно з [Угодою учасника][homepage], версія 1.4, доступної за адресою https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
 
+Щоб отримати відповіді на поширені запитання щодо цих норм етики, див. https://www.contributor-covenant.org/faq
+
 [homepage]: https://www.contributor-covenant.org
