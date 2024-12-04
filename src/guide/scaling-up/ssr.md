@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Рендерингом на стороні серверу (SSR) {#server-side-rendering-ssr}
+# Рендеринг на стороні серверу (SSR) {#server-side-rendering-ssr}
 
 ## Огляд {#overview}
 
