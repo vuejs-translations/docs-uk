@@ -430,7 +430,7 @@ console.log(proxy.nested === raw) // false
 
 ### Обмеження `reactive()` \*\* {#limitations-of-reactive}
 
-`reactive()` API має два обмеження:
+`reactive()` API має три обмеження:
 
 1. Він працює лише для типів об’єктів (об’єктів, масивів і [типів колекцій](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#keyed_collections), таких як `Map` і ` Set`). Він не може містити [примітивні типи](https://developer.mozilla.org/en-US/docs/Glossary/Primitive), такі як `string`, `number` або `boolean`.
 
